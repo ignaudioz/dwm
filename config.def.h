@@ -94,6 +94,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_k,    shiftview,        {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_j,    shiftview,        {.i = -1 } },
     /*Refreshing xrdb colors*/
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     /*Personal keybinds*/  
@@ -101,7 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_home,      spawn,          {.v = browsercmd } },
     /* flameshot */
 	{ MODKEY,                       XK_ps,      spawn,          {.v = flameshotcmd } },
-
+    
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
