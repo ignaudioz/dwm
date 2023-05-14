@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
@@ -100,7 +100,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     /*Personal keybinds*/  
     /*librewolf*/
-	{ MODKEY,                       XK_home,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_Home,      spawn,          {.v = browsercmd } },
     /* flameshot */
 	{ MODKEY,                       XK_ps,      spawn,          {.v = flameshotcmd } },
     
