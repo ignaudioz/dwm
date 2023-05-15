@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -27,7 +27,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "^_", "2", "www", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "www", "^_", "com", "4", "5", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,9 +35,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	/* { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 }, */
+	{ "LibreWolf", NULL,     NULL,           1,    0,          0,          -1,        -1 },
+	{ "Brave-browser", NULL,     NULL,           1,    0,          0,          -1,        -1 },
+	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        -1 },
+	{ "Alacritty", NULL,     NULL,           2,    0,          0,          -1,        -1 },
+	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -56,7 +59,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-#define XK_ps  0x0000ff61
+/* #define XK_ps  0x0000ff61 */
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -71,7 +74,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
-static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
+static const char *flameshotcmd[]  = { "flameshot", "gui", "-p", "/tmp" NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -112,7 +115,7 @@ static const Key keys[] = {
     /*librewolf*/
 	{ MODKEY,                       XK_Home,      spawn,          {.v = browsercmd } },
     /* flameshot */
-	{ MODKEY,                       XK_ps,      spawn,          {.v = flameshotcmd } },
+	{ MODKEY,                       XK_Print,      spawn,          {.v = flameshotcmd } },
     
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
