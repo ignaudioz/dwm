@@ -25,7 +25,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "^_", "2", "www", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "_^", "2", "www", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -90,12 +90,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-
-	{ MODKEY,	            		XK_Left,	focusmon,	    {.i = -1 } },
-	{ MODKEY|ShiftMask,	        	XK_Left,	tagmon,         {.i = -1 } },
-	{ MODKEY,		            	XK_Right,	focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,	        	XK_Right,	tagmon,         {.i = +1 } },
-
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,    shiftview,        {.i = +1 } },
     { MODKEY|ShiftMask,             XK_j,    shiftview,        {.i = -1 } },
     /*Refreshing xrdb colors*/
