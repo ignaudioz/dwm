@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -25,16 +26,18 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "_^", "2", "www", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "^_", "2", "www", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -90,10 +93,12 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
+	{ MODKEY,	            		XK_Left,	focusmon,	    {.i = -1 } },
+	{ MODKEY|ShiftMask,	        	XK_Left,	tagmon,         {.i = -1 } },
+	{ MODKEY,		            	XK_Right,	focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,	        	XK_Right,	tagmon,         {.i = +1 } },
+
     { MODKEY|ShiftMask,             XK_k,    shiftview,        {.i = +1 } },
     { MODKEY|ShiftMask,             XK_j,    shiftview,        {.i = -1 } },
     /*Refreshing xrdb colors*/
