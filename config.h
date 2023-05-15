@@ -74,7 +74,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
-static const char *flameshotcmd[]  = { "flameshot", "gui", "-p", "/tmp", NULL };
+static const char *flameshotcmd[]  = { "flameshot", "gui", "-p", "/tmp" NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
