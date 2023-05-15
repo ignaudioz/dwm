@@ -27,7 +27,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "www", "^_", "com", "♕", "⚝" };
+static const char *tags[] = { "www", "^_", "com", "movie", "other" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,9 +38,9 @@ static const Rule rules[] = {
 	/* { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 }, */
 	{ "LibreWolf", NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "Brave-browser", NULL,     NULL,           1,    0,          0,          -1,        -1 },
-	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        2 },
+	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        1 },
 	{ "Alacritty", NULL,     NULL,           2,    0,          0,          -1,        -1 },
-	{ "mpv", NULL,     NULL,           1,    0,          1,          -1,        -1 },
+	{ "mpv", NULL,     NULL,           0,    0,          1,          -1,        -1 },
 	{ "thunar", NULL,     NULL,           0,    1,          0,          -1,        -1 },
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
