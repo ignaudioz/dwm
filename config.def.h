@@ -4,7 +4,7 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -12,7 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "Siji:pixelsize=10", "DavidLibre:size=10"};
+static const char *fonts[]          = { "monospace:size=8", "Siji:pixelsize=8", "DavidLibre:size=8"};
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -40,6 +40,8 @@ static const Rule rules[] = {
 	{ "Brave-browser", NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        2 },
 	{ "Alacritty", NULL,     NULL,           2,    0,          0,          -1,        -1 },
+	{ "mpv", NULL,     NULL,           1,    0,          1,          -1,        -1 },
+	{ "thunar", NULL,     NULL,           0,    1,          0,          -1,        -1 },
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
@@ -75,6 +77,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", "-p", "/tmp", NULL };
+static const char *thunarcmd[]  = { "thunar", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -116,7 +119,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Home,      spawn,          {.v = browsercmd } },
     /* flameshot */
 	{ MODKEY,                       XK_Print,      spawn,          {.v = flameshotcmd } },
-    
+    /* filemanager */ 
+	{ MODKEY,                       XK_e,      spawn,          {.v = thunarcmd } },
+
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
