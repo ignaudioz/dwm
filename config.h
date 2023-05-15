@@ -2,9 +2,9 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -27,7 +27,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "www", "^_", "com", "♕", "⚝" };
+static const char *tags[] = { "www", "^_", "com", "4", "5", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	/* { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 }, */
 	{ "LibreWolf", NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "Brave-browser", NULL,     NULL,           1,    0,          0,          -1,        -1 },
-	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        2 },
+	{ "discord", NULL,     NULL,           3,    0,          0,          -1,        -1 },
 	{ "Alacritty", NULL,     NULL,           2,    0,          0,          -1,        -1 },
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
