@@ -62,7 +62,9 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-/* #define XK_ps  0x0000ff61 */
+#define XF86Raise 0x1008ff13
+#define XF86Lower 0x1008ff11
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -79,6 +81,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", "-p", "/tmp", NULL };
 static const char *thunarcmd[]  = { "thunar", NULL };
+/* vol */
+static const char *upvol[] = { "pamixer", "-i", "2", NULL };
+static const char *downvol[] = { "pamixer", "-d", "2", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -111,8 +116,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 
-    { MODKEY|ShiftMask,             XK_k,    shiftview,        {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_j,    shiftview,        {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_k,       shiftview,        {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_j,       shiftview,        {.i = -1 } },
+    /* Headset audio contorl */
+    { 0,                            XF86Raise,    spawn,        {.v = upvol } },
+    { 0,                            XF86Lower,    spawn,        {.v = downvol } },
+
     /*Refreshing xrdb colors*/
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     /*Personal keybinds*/  
