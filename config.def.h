@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	{ "Brave-browser",   NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "discord",         NULL,     NULL,      1 << 2,    0,          0,          -1,         1 },
 	{ "Alacritty",       NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
-	{ "mpv",             NULL,     NULL,           0,    0,          0,          -1,        -1 },
+	{ "mpv",             NULL,     NULL,           0,    0,          0,           0,        -1 },
 	{ "thunar",          NULL,     NULL,           0,    1,          0,           0,        -1 },
 
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
