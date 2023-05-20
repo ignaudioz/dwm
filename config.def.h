@@ -12,7 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font:pixelsize=14:antialias=true:autohint:true", "Siji:size=12", "DavidLibre:size=12"};
+static const char *fonts[]          = { "Hack Nerd Font:pixelsize=14:antialias=true:autohint:true", "FontAwesome:size=14","Siji:size=12", "DavidLibre:size=12"};
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -28,7 +28,7 @@ static char *colors[][3] = {
 
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -127,7 +127,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     /*Personal keybinds*/  
     /*librewolf*/
-	{ MODKEY,                       XK_Home,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
     /* flameshot */
 	{ 0,                       XK_Print,      spawn,          {.v = flameshotcmd } },
     /* filemanager */ 
