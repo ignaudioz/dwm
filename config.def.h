@@ -41,8 +41,10 @@ static const Rule rules[] = {
 	{ "Brave-browser",   NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "discord",         NULL,     NULL,      1 << 2,    0,          0,          -1,         1 },
 	{ "Alacritty",       NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
+	{ "st",       NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
 	{ "mpv",             NULL,     NULL,           0,    0,          0,           0,        -1 },
-	{ "thunar",          NULL,     NULL,           0,    1,          0,           0,        -1 },
+	{ "sxiv",            NULL,     NULL,           0,    0,          0,           0,        -1 },
+	{ "lf",          NULL,     NULL,           0,    1,          0,           0,        -1 },
 
 	/* { "St",      NULL,     NULL,           0,         0,          1,           0,        -1 }, */
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
@@ -78,10 +80,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+/* static const char *termcmd[]  = { "alacritty", NULL }; */
+static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
-static const char *thunarcmd[]  = { "thunar", NULL };
+static const char *lfcmd[]  = { "lf", NULL };
 /* vol */
 static const char *upvol[] = { "pamixer", "-i", "2", NULL };
 static const char *downvol[] = { "pamixer", "-d", "2", NULL };
@@ -131,7 +134,9 @@ static const Key keys[] = {
     /* flameshot */
 	{ 0,                       XK_Print,      spawn,          {.v = flameshotcmd } },
     /* filemanager */ 
-	{ MODKEY,                       XK_e,      spawn,          {.v = thunarcmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = lfcmd } },
+    /* History clipboard */
+    { MODKEY|ShiftMask,	XK_v,				spawn,			SHCMD("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'") },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
