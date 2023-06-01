@@ -85,7 +85,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
-static const char *lfcmd[]  = { "lf", NULL };
+static const char *lfcmd[]  = { "st", "-e", "lfub", NULL };
 /* vol */
 static const char *upvol[] = { "pamixer", "-i", "2", NULL };
 static const char *downvol[] = { "pamixer", "-d", "2", NULL };
@@ -128,16 +128,16 @@ static const Key keys[] = {
     { 0,                            XF86Lower,    spawn,        {.v = downvol } },
 
     /*Refreshing xrdb colors*/
-	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+	{ MODKEY,                       XK_F5,          xrdb,           {.v = NULL } },
     /*Personal keybinds*/  
     /*librewolf*/
-	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_w,               spawn,          {.v = browsercmd } },
     /* flameshot */
-	{ 0,                       XK_Print,      spawn,          {.v = flameshotcmd } },
+	{ 0,                            XK_Print,           spawn,          {.v = flameshotcmd } },
     /* filemanager */ 
-	{ MODKEY,                       XK_e,      spawn,          {.v = lfcmd } },
+	{ MODKEY,                       XK_e,               spawn,          {.v = lfcmd } },
     /* History clipboard */    
-    { MODKEY|ShiftMask,	XK_v,				spawn,			SHCMD("greenclip print | grep . | dmenu -i -l 10 -p clipboard | xargs -r -d'\n' -I '{}' greenclip print '{}'") },
+    { MODKEY|ShiftMask,	            XK_v,				spawn,			SHCMD("greenclip print | grep . | dmenu -i -l 10 -p clipboard | xargs -r -d'\n' -I '{}' greenclip print '{}'") },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
