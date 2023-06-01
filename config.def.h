@@ -41,7 +41,8 @@ static const Rule rules[] = {
 	{ "Brave-browser",   NULL,     NULL,           1,    0,          0,          -1,        -1 },
 	{ "discord",         NULL,     NULL,      1 << 2,    0,          0,          -1,         1 },
 	{ "Alacritty",       NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
-	{ "st",       NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
+	{ "st",              NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
+	{ "St",              NULL,     NULL,      1 << 1,    0,          1,          -1,        -1 },
 	{ "mpv",             NULL,     NULL,           0,    0,          0,           0,        -1 },
 	{ "sxiv",            NULL,     NULL,           0,    0,          0,           0,        -1 },
 	{ "lf",          NULL,     NULL,           0,    1,          0,           0,        -1 },
@@ -135,8 +136,8 @@ static const Key keys[] = {
 	{ 0,                       XK_Print,      spawn,          {.v = flameshotcmd } },
     /* filemanager */ 
 	{ MODKEY,                       XK_e,      spawn,          {.v = lfcmd } },
-    /* History clipboard */
-    { MODKEY|ShiftMask,	XK_v,				spawn,			SHCMD("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'") },
+    /* History clipboard */    
+    { MODKEY|ShiftMask,	XK_v,				spawn,			SHCMD("greenclip print | grep . | dmenu -i -l 10 -p clipboard | xargs -r -d'\n' -I '{}' greenclip print '{}'") },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
