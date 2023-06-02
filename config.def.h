@@ -86,9 +86,6 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
 static const char *lfcmd[]  = { "st", "-e", "lfub", NULL };
-/* vol */
-static const char *upvol[] = { "pamixer", "-i", "2", NULL };
-static const char *downvol[] = { "pamixer", "-d", "2", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -124,8 +121,8 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,       shiftview,        {.i = +1 } },
     { MODKEY|ShiftMask,             XK_j,       shiftview,        {.i = -1 } },
     /* Headset audio contorl */
-    { 0,                            XF86Raise,    spawn,        {.v = upvol } },
-    { 0,                            XF86Lower,    spawn,        {.v = downvol } },
+    { 0,                            XF86Raise,    spawn,        SHCMD("pamixer -i 2 | dt-volume") },
+    { 0,                            XF86Lower,    spawn,        SHCMD("pamixer -d 2 | dt-volume") },
 
     /*Refreshing xrdb colors*/
 	{ MODKEY,                       XK_F5,          xrdb,           {.v = NULL } },
