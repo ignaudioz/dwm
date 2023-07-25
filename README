@@ -13,6 +13,7 @@ Patches
 - [systray patch](https://dwm.suckless.org/patches/systray/): A simple system tray implementation. Multi-monitor is also supported. The tray follows the selected monitor.
 - [attachaside](https://dwm.suckless.org/patches/attachaside/): Make new clients get attached and focused in the stacking area instead of always becoming the new master.
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps/): Adds gaps and control them in real time (<kbd>Lalt-'-'/"+").
+- [scratchpad](https://dwm.suckless.org/patches/scratchpad/): The scratchpad patch allows you to spawn or restore a floating terminal window.
 
 Requirements
 ------------

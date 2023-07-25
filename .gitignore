@@ -2,4 +2,4 @@
 patches/
 *.orig
 *.rej
-/config.h
+/config.def.h
